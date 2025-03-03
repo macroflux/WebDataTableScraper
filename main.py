@@ -1,3 +1,11 @@
+"""
+Web Scraper for extracting tabular data from a webpage
+and uploading it to Google Sheets for reporting
+
+Author: Chris Cole
+Date: 2024-03-01
+"""
+
 import configparser
 import datetime
 import requests
