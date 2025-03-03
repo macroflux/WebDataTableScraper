@@ -1,6 +1,6 @@
 # Web Scraper to Google Sheets
 
-This Python script scrapes tabular data from a website, processes it, and uploads it to **Google Sheets** for reporting in **Looker Studio**. It extracts **all tables** dynamically, appends a **timestamp** to the spreadsheet name, and runs on a **scheduled interval**.
+This Python script scrapes tabular data from a website, processes it, and uploads it to **Google Sheets** for reporting in **Looker Studio**. It extracts **all tables** dynamically, appends a **timestamp** to the spreadsheet name, and runs on a **scheduled interval**. Useful for data driven, tabular display sites with refreshing data to run localized analysis reports off of, and where there are no data privacy issue considerations.
 
 ## Features
 - Extracts **all tables** from a web page.
