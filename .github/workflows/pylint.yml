@@ -19,8 +19,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install pylint  # Ensure Pylint is installed
+
+      - name: Verify Pylint Installation
+        run: python -m pylint --version  
 
       - name: Run Pylint
-        run: |
-          pylint $(git ls-files '*.py')
-
+        run: python -m pylint $(git ls-files '*.py')  
