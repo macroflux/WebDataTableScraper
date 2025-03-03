@@ -25,7 +25,7 @@ CREDENTIALS_FILE = config["GOOGLE_SHEETS"]["credentials_file"]
 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 SHEET_NAME = f"{SPREADSHEET_NAME}_{timestamp}"
 
-response = requests.get(URL)
+response = requests.get(URL, timeout=60)
 soup = BeautifulSoup(response.content, "html.parser")
 
 tables = soup.find_all("table")
