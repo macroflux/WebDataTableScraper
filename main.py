@@ -25,12 +25,10 @@ tables = soup.find_all("table")
 def parse_table(table):
     headers = [th.get_text(strip=True) for th in table.find_all("th")]
     rows = []
-    
     for tr in table.find_all("tr")[1:]:
         cells = [td.get_text(strip=True) for td in tr.find_all("td")]
         if cells:
             rows.append(cells)
-    
     return pd.DataFrame(rows, columns=headers) if headers else pd.DataFrame(rows)
 
 parsed_tables = {f"Table_{i+1}": parse_table(table) for i, table in enumerate(tables)}
