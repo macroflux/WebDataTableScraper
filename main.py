@@ -31,6 +31,15 @@ soup = BeautifulSoup(response.content, "html.parser")
 tables = soup.find_all("table")
 
 def parse_table(table):
+    """
+    Extracts data from an HTML table and converts it into a Pandas DataFrame.
+
+    Args:
+        table (bs4.element.Tag): The HTML table element to be parsed.
+
+    Returns:
+        pandas.DataFrame: A DataFrame containing the extracted table data.
+    """
     headers = [th.get_text(strip=True) for th in table.find_all("th")]
     rows = []
     for tr in table.find_all("tr")[1:]:
@@ -49,6 +58,16 @@ spreadsheet = client.create(SHEET_NAME)
 spreadsheet.share(SPREADSHEET_SHARE, perm_type="user", role="writer")
 
 def upload_to_gsheets(df, sheet_name):
+    """
+    Uploads a Pandas DataFrame to a Google Sheets worksheet.
+
+    Args:
+        df (pandas.DataFrame): The DataFrame containing data to be uploaded.
+        sheet_name (str): The name of the worksheet where the data will be stored.
+
+    Returns:
+        None
+    """
     worksheet = spreadsheet.add_worksheet(title=sheet_name, rows=df.shape[0]+1, cols=df.shape[1])
     worksheet.update([df.columns.values.tolist()] + df.values.tolist())
 
