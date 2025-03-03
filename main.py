@@ -1,10 +1,10 @@
+import configparser
+import datetime
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-import configparser
-import datetime
 
 config = configparser.ConfigParser()
 config.read("config.ini")
