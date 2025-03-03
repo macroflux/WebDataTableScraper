@@ -68,7 +68,11 @@ def upload_to_gsheets(dataframe, sheet_name):
     Returns:
         None
     """
-    worksheet = spreadsheet.add_worksheet(title=sheet_name, rows=dataframe.shape[0] + 1, cols=dataframe.shape[1])
+    worksheet = spreadsheet.add_worksheet(
+        title=sheet_name,
+        rows=dataframe.shape[0] + 1,
+        cols=dataframe.shape[1]
+    )
     worksheet.update([dataframe.columns.values.tolist()] + dataframe.values.tolist())
 
 for table_name, df in parsed_tables.items():
