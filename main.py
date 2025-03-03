@@ -57,19 +57,19 @@ client = gspread.authorize(creds)
 spreadsheet = client.create(SHEET_NAME)
 spreadsheet.share(SPREADSHEET_SHARE, perm_type="user", role="writer")
 
-def upload_to_gsheets(df, sheet_name):
+def upload_to_gsheets(dataframe, sheet_name):
     """
     Uploads a Pandas DataFrame to a Google Sheets worksheet.
 
     Args:
-        df (pandas.DataFrame): The DataFrame containing data to be uploaded.
+        dataframe (pandas.DataFrame): The DataFrame containing data to be uploaded.
         sheet_name (str): The name of the worksheet where the data will be stored.
 
     Returns:
         None
     """
-    worksheet = spreadsheet.add_worksheet(title=sheet_name, rows=df.shape[0]+1, cols=df.shape[1])
-    worksheet.update([df.columns.values.tolist()] + df.values.tolist())
+    worksheet = spreadsheet.add_worksheet(title=sheet_name, rows=dataframe.shape[0] + 1, cols=dataframe.shape[1])
+    worksheet.update([dataframe.columns.values.tolist()] + dataframe.values.tolist())
 
 for table_name, df in parsed_tables.items():
     if not df.empty:
