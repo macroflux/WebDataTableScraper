@@ -14,7 +14,7 @@ This Python script scrapes tabular data from a website, processes it, and upload
 
 ### 1. Clone the Repository
 ```sh
- git clone https://github.com/macroflux/WebDataTableScraper.git
+ git clone https://github.com/macroflux/web-scraper-google-sheets.git
  cd web-scraper
 ```
 
